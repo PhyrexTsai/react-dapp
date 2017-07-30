@@ -1,5 +1,10 @@
 # React ÐApp
 
+## Technical Stack
+- react: HTML view
+- ethereumjs-util: hex transfer
+- infura: connect with Ethereum
+
 ## Run
 `npm start` or `yarn start` 
 

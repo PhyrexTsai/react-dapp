@@ -38,7 +38,7 @@ class AddressSearch extends React.Component {
         "latest"
       ]
     }
-    fetch('https://ropsten.infura.io/YJ5zuNbAkmYQY3kFn4cZ', {
+    fetch('https://ropsten.infura.io/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
