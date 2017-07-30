@@ -1,14 +1,17 @@
 # React ÐApp
+實作利用 React + Ethereum library + INFURA 創建 ÐApp 
 
 ## Technical Stack
-- react: HTML view
-- ethereumjs-util: hex transfer
-- infura: connect with Ethereum
+- react: 實作 HTML 介面與功能
+- ethereumjs-util: 輔助操作 Ethereum 元件庫，A collection of utility functions for ethereum. It can be used in node.js or can be in the browser with browserify.
+- ethereumjs-tx: 輔助操作 Ethereum transaction，A simple module for creating, manipulating and signing ethereum transactions.
+- infura: 透過 JSON-RPC 2.0 連線到 Ethereum 網路，參考[https://github.com/ethereum/wiki/wiki/JSON-RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC)
 
 ## Run
 `npm start` or `yarn start` 
 
 ## React Components
+介紹每個 Component 都在做些什麼事情
 
 ### AddressSearch
 搜尋 Ethereum 的 Address 查看餘額
