@@ -30,7 +30,7 @@
 
 ## TODO
 - [x] 建立一個 React App Page 來提供上傳 Private Key 功能
-- [ ] 參考 [MetaMask](https://github.com/MetaMask/metamask-extension/blob/c2aa05e0134d552e784391ae22ec2b8c35a7eb94/ui/app/accounts/import/index.js) 取得上傳後的 Private Key，這樣就可以透過這個 Private Key 來 Sign Transaction
+- [x] 參考 [MetaMask](https://github.com/MetaMask/metamask-extension/blob/c2aa05e0134d552e784391ae22ec2b8c35a7eb94/ui/app/accounts/import/index.js) 取得上傳後的 Private Key，這樣就可以透過這個 Private Key 來 Sign Transaction
 - [ ] 使用 [ethereum-tx](https://github.com/ethereumjs/ethereumjs-tx) 來打包 Raw Transaction
 - [ ] 透過 Signed Transaction 將資料透過 INFURA 提供的 RESTful API 傳送到 [https://ropsten.infura.io](https://ropsten.infura.io)
 - [ ] Watch Transaction by Transaction Hash
