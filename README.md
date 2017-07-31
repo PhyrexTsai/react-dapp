@@ -23,7 +23,7 @@
 顯示 Ethereum 區塊鏈的區塊編號
 
 ### Upload
-將上傳的 Private(JSON) 解析出來並且顯示
+提供上傳 keystore(JSON) 與輸入 passphrase 產生 PrivateKey
 
 ### PrivateKey
 顯示 PrivateKey 的內容
