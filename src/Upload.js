@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PrivateKey from './PrivateKey'
+import RawTransaction from './RawTransaction'
 import EthWallet from 'ethereumjs-wallet'
 
 class Upload extends React.Component {
@@ -69,6 +70,7 @@ class Upload extends React.Component {
         <input type="text" placeholder="passphrase" onChange={this.handlePassphrase}/>
         <button onClick={this.handleChange}>SUBMIT</button>
         <PrivateKey text={this.state.privateKey}/>
+        <RawTransaction privateKey={this.state.privateKey}/>
       </div>
     )
   }
