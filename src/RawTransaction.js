@@ -33,13 +33,23 @@ class RawTransaction extends React.Component {
     console.log(privKey)
     const encodeData = "0x" + Abi.methodID("", []).toString("hex")
     
+    /**
+     * nonce: 在 Ethereum 中為避免交易雙花, 所以透過 nonce 紀錄帳號地址過去送的交易, 可看作流水號 (Seq#).
+     *        使用 web3.eth.getTransactionCount(account) 
+     *        可取得下一次當帳號要送交易時, 需要的 nonce, 另外 nonce 具備連續性, 否則會報錯.
+     * 
+     * gasPrice: web3.toHex(2000000000) 大概是 20 gwei
+     * gasLimit: 一般交易使用 21000 gas，其他交易要使用 web3.eth.estmateGas();
+     * value: web3.toHex(web3.toWei(25, 'ether'))
+     * data: 單純送錢就留空
+     */
     const rawTx = {
       nonce: '0x00',
       gasPrice: '0x09184e72a000', 
       gasLimit: '0x2710',
       to: '0x0000000000000000000000000000000000000000', 
       value: '0x00', 
-      data: encodeData
+      data: ''//encodeData
     }
 
     const tx = new Tx(rawTx)
