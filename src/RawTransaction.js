@@ -37,9 +37,14 @@ class RawTransaction extends React.Component {
      * nonce: 在 Ethereum 中為避免交易雙花, 所以透過 nonce 紀錄帳號地址過去送的交易, 可看作流水號 (Seq#).
      *        使用 web3.eth.getTransactionCount(account) 
      *        可取得下一次當帳號要送交易時, 需要的 nonce, 另外 nonce 具備連續性, 否則會報錯.
+     *        https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactioncount
      * 
      * gasPrice: web3.toHex(2000000000) 大概是 20 gwei
+     *           https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gasprice
+     * 
      * gasLimit: 一般交易使用 21000 gas，其他交易要使用 web3.eth.estmateGas();
+     *           https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gasprice
+     * 
      * value: web3.toHex(web3.toWei(25, 'ether'))
      * data: 單純送錢就留空
      */
@@ -57,6 +62,9 @@ class RawTransaction extends React.Component {
 
     const serializedTx = tx.serialize()
     console.log(serializedTx.toString('hex'))
+
+    // 呼叫 sendRawTransaction('0x' + tx.serialize().toString('hex'))
+
     this.setState({
       rawTransaction: serializedTx.toString('hex')
     })
