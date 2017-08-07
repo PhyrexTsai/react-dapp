@@ -32,7 +32,7 @@ class RawTransaction extends React.Component {
     const privKey = new Buffer(this.props.privateKey.substring(2), 'hex')
     console.log(privKey)
     const encodeData = "0x" + Abi.methodID("", []).toString("hex")
-    
+
     /**
      * nonce: 在 Ethereum 中為避免交易雙花, 所以透過 nonce 紀錄帳號地址過去送的交易, 可看作流水號 (Seq#).
      *        使用 web3.eth.getTransactionCount(account) 
