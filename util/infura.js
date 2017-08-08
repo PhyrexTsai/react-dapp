@@ -1,91 +1,65 @@
 "use strict";
 
-function getTransactionCount(address) {
-  const payload = {
-    jsonrpc: "2.0", 
-    id: 1, 
-    method: "eth_getTransactionCount", 
-    params: [
-      address, 
-      "latest"
-    ]
-  }
-  
-  fetch('https://ropsten.infura.io/', {
+const fetch = require('node-fetch');
+
+const target = 'https://ropsten.infura.io/';
+
+const execFetch = async (payload) => {
+  const res = await fetch(target, {
     method: 'POST',
     headers: {
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(payload)
-  })
-  .then((response) => {
-    //ok 代表狀態碼在範圍 200-299
-    if (!response.ok) throw new Error(response.statusText)
-    return response.json()
-  })
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    //這裡可以顯示一些訊息
-    console.error("error:", error)
-  })
-}
+  });
 
-function getGasPrice() {
-  const payload = {
-    "jsonrpc": "2.0", 
-    "id": 73, 
-    "method": "eth_gasPrice", 
-    "params": []
+  if (!res.ok) throw Error(res.statusText); 
+
+  return  await res.json();
+};
+
+const getPayload = (id, method, params) => ({
+  jsonrpc: '2.0', 
+  id,
+  method,
+  params
+});
+
+const getTransactionCount = async (address) => {
+  try {
+    const params = [address, 'latest'];
+    const payload = getPayload(1, 'eth_getTransactionCount', params);
+    const result = await execFetch(payload);
+    console.log(`getTransactionCount result: ${JSON.stringify(result)}`);
+  } catch (error) {
+    console.log(`getTransactionCount Error: ${error}`);
   }
-  fetch('https://ropsten.infura.io/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  })
-  .then((response) => {
-    //ok 代表狀態碼在範圍 200-299
-    if (!response.ok) throw new Error(response.statusText)
-    return response.json()
-  })
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    //這裡可以顯示一些訊息
-    console.error("error:", error)
-  })
-}
+};
 
-function getEstimateGas(data) {
-  const payload = {
-    "jsonrpc": "2.0", 
-    "id": 73, 
-    "method": "eth_gasPrice", 
-    "params": [{data}]
+const getGasPrice = async () => {
+  try {
+    const params = [];
+    const payload = getPayload(73, 'eth_gasPrice', params);
+    const result = await execFetch(payload);
+    console.log(`getGasPrice result: ${JSON.stringify(result)}`);
+  } catch (error) {
+    console.log(`getGasPrice Error: ${error}`);
   }
-  fetch('https://ropsten.infura.io/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  })
-  .then((response) => {
-    //ok 代表狀態碼在範圍 200-299
-    if (!response.ok) throw new Error(response.statusText)
-    return response.json()
-  })
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    //這裡可以顯示一些訊息
-    console.error("error:", error)
-  })
-}
+};
 
+const getEstimateGas = (data) => {
+  try {
+    const params = [{data}];
+    const payload = getPayload(73, 'eth_gasPrice', params);
+    const result = await execFetch(payload);
+    console.log(`getEstimateGas result: ${JSON.stringify(result)}`);
+    return result;
+  } catch (error) {
+    console.log(`getEstimateGas Error: ${error}`);
+  }
+};
+
+//not flow order
 getTransactionCount("7c20badacd20f09f972013008b5e5dae82670c8d");
+getGasPrice();
