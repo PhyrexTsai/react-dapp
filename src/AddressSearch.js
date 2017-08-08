@@ -7,7 +7,7 @@ type Props = {
   initAddress: string,
 }
 
-class AddressSearch extends React.Component {
+class AddressSearch extends Component {
   state: {
     address: string,
     balance: string,

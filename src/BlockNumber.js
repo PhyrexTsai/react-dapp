@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import EthUtil from 'ethereumjs-util'
 
-class BlockNumber extends React.Component {
+class BlockNumber extends Component {
   state: {
     blockNumber: string,
   }
