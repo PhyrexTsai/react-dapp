@@ -50,8 +50,8 @@ const getGasPrice = async () => {
 
 const getEstimateGas = async (data) => {
   try {
-    const params = [{data}];
-    const payload = getPayload(73, 'eth_gasPrice', params);
+    const params = [data];
+    const payload = getPayload(1, 'eth_estimateGas', params);
     const result = await execFetch(payload);
     console.log(`getEstimateGas result: ${JSON.stringify(result)}`);
     return result;
@@ -61,5 +61,6 @@ const getEstimateGas = async (data) => {
 };
 
 //not flow order
-getTransactionCount("7c20badacd20f09f972013008b5e5dae82670c8d");
+getTransactionCount("0x7c20badacd20f09f972013008b5e5dae82670c8d");
 getGasPrice();
+getEstimateGas({"from":"0x7c20badacd20f09f972013008b5e5dae82670c8d","to":"0xf0160428a8552ac9bb7e050d90eeade4ddd52843","value":"0xff22","gasPrice":"0x51da038cc","gas":"0xffffff"});
