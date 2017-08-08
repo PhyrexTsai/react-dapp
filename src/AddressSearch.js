@@ -31,14 +31,15 @@ class AddressSearch extends Component {
 
   handleAddressBalanceLoad = () => {
     const payload = {
-      "jsonrpc": "2.0", 
-      "id": 1, 
-      "method": "eth_getBalance", 
-      "params": [
+      jsonrpc: "2.0", 
+      id: 1, 
+      method: "eth_getBalance", 
+      params: [
         this.state.address, 
         "latest"
       ]
     }
+
     fetch('https://ropsten.infura.io/', {
         method: 'POST',
         headers: {

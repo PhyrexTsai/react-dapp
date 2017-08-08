@@ -2,14 +2,15 @@
 
 function getTransactionCount(address) {
   const payload = {
-    "jsonrpc": "2.0", 
-    "id": 1, 
-    "method": "eth_getTransactionCount", 
-    "params": [
+    jsonrpc: "2.0", 
+    id: 1, 
+    method: "eth_getTransactionCount", 
+    params: [
       address, 
       "latest"
     ]
   }
+  
   fetch('https://ropsten.infura.io/', {
     method: 'POST',
     headers: {
