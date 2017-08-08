@@ -48,7 +48,7 @@ const getGasPrice = async () => {
   }
 };
 
-const getEstimateGas = (data) => {
+const getEstimateGas = async (data) => {
   try {
     const params = [{data}];
     const payload = getPayload(73, 'eth_gasPrice', params);
