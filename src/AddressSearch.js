@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import EthUtil from 'ethereumjs-util'
 import AddressBalance from './AddressBalance'
+import PropTypes from 'prop-types'
 
 type Props = {
   initAddress: string,
@@ -97,7 +98,7 @@ class AddressSearch extends React.Component {
 }
 
 AddressSearch.propTypes = {
-  initAddress: React.PropTypes.string
+  initAddress: PropTypes.string
 }
 
 export default AddressSearch

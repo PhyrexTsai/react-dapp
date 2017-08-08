@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const PrivateKey = (props: { text: string }) => (
   <h3>{props.text}</h3>
@@ -6,7 +7,7 @@ const PrivateKey = (props: { text: string }) => (
 
 // 加入props的資料類型驗証
 PrivateKey.propTypes = {
-  text: React.PropTypes.string.isRequired
+  text: PropTypes.string.isRequired
 }
 
 // 匯出TextShow模組
