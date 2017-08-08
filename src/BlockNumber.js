@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import EthUtil from 'ethereumjs-util'
 
-class BlockNumber extends React.Component {
+class BlockNumber extends Component {
   state: {
     blockNumber: string,
   }
@@ -22,7 +22,13 @@ class BlockNumber extends React.Component {
   }
 
   handleBlockNumberLoad = () => {
-    const payload = {"jsonrpc": "2.0", "id": 1, "method": "eth_blockNumber", "params": []}
+    const payload = {
+      jsonrpc: "2.0",
+      id: 1,
+      method: "eth_blockNumber",
+      params: []
+    }
+
     fetch('https://ropsten.infura.io/YJ5zuNbAkmYQY3kFn4cZ', {
         method: 'POST',
         headers: {

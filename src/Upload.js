@@ -3,7 +3,7 @@ import PrivateKey from './PrivateKey'
 import RawTransaction from './RawTransaction'
 import EthWallet from 'ethereumjs-wallet'
 
-class Upload extends React.Component {
+class Upload extends Component {
   state: {
     privateKey: string,
     keystore: string,

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const h2d = (s) => {
 
@@ -33,7 +34,7 @@ const AddressBalance = (props: { balance: string }) => (
 
 // 加入props的資料類型驗証
 AddressBalance.propTypes = {
-  balance: React.PropTypes.string.isRequired
+  balance: PropTypes.string.isRequired
 }
 
 // 匯出TextShow模組

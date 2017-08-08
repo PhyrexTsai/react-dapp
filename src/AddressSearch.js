@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import EthUtil from 'ethereumjs-util'
 import AddressBalance from './AddressBalance'
+import PropTypes from 'prop-types'
 
 type Props = {
   initAddress: string,
 }
 
-class AddressSearch extends React.Component {
+class AddressSearch extends Component {
   state: {
     address: string,
     balance: string,
@@ -30,14 +31,15 @@ class AddressSearch extends React.Component {
 
   handleAddressBalanceLoad = () => {
     const payload = {
-      "jsonrpc": "2.0", 
-      "id": 1, 
-      "method": "eth_getBalance", 
-      "params": [
+      jsonrpc: "2.0", 
+      id: 1, 
+      method: "eth_getBalance", 
+      params: [
         this.state.address, 
         "latest"
       ]
     }
+
     fetch('https://ropsten.infura.io/', {
         method: 'POST',
         headers: {
@@ -97,7 +99,7 @@ class AddressSearch extends React.Component {
 }
 
 AddressSearch.propTypes = {
-  initAddress: React.PropTypes.string
+  initAddress: PropTypes.string
 }
 
 export default AddressSearch

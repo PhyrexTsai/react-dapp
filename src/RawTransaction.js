@@ -1,6 +1,7 @@
 import React from 'react'
 import Tx from 'ethereumjs-tx'
 import Abi from 'ethereumjs-abi'
+import PropTypes from 'prop-types'
 
 class RawTransaction extends React.Component {
   state: {
@@ -84,7 +85,7 @@ class RawTransaction extends React.Component {
 
 // 加入props的資料類型驗証
 RawTransaction.propTypes = {
-  privateKey: React.PropTypes.string
+  privateKey: PropTypes.string
 }
 
 // 匯出TextShow模組
