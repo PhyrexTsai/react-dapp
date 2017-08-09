@@ -58,7 +58,16 @@ class RawTransaction extends React.Component {
       data: ''//encodeData
     }
 
-    const tx = new Tx(rawTx)
+    const sendRawTx = {
+      "nonce": "0x26",
+      "from":"0x7c20badacd20f09f972013008b5e5dae82670c8d",
+      "to":"0xd6026ddc3a2be02a3577de714a98e24dc4a89dbf",
+      "value":"0x22",
+      "gasPrice":"0x737be7600",
+      "gasLimit": "0x5209"
+    }
+
+    const tx = new Tx(sendRawTx)
     tx.sign(privKey)
 
     const serializedTx = tx.serialize()
