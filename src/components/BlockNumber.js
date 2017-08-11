@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import EthUtil from 'ethereumjs-util'
-import {getBlockNumber} from './lib/dAppService';
+import {getBlockNumber} from '../lib/dAppService';
 
 class BlockNumber extends Component {
   state = {
