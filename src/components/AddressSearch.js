@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {getAddressBalanceLoad} from './lib/dAppService';
-import {h2d} from './lib/addressSearchHelper';
+import {getAddressBalanceLoad} from '../lib/dAppService';
+import {h2d} from '../lib/addressSearchHelper';
 
 class AddressSearch extends Component {
   state = {
