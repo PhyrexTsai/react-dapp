@@ -14,7 +14,7 @@ class App extends Component {
           <h2>React Dapp</h2>
         </div>
         <BlockNumber />
-        <AddressSearch balance="0"/>
+        <AddressSearch />
         <Upload />
       </div>
     );

@@ -4,31 +4,18 @@ import Abi from 'ethereumjs-abi'
 import PropTypes from 'prop-types'
 
 class RawTransaction extends React.Component {
-  state: {
-    privateKey: string,
-    ether: number,
-    rawTransaction: string,
+  state = {
+    privateKey: this.props.privateKey,
+    ether: 0,
+    rawTransaction: ''
+  };
+
+  handleNumber = (e) => {
+    e.preventDefault();
+    this.setState({ether: e.target.value});
   }
 
-  constructor(props: Props) {
-    // super是呼叫上層父類別的建構式
-    super(props)
-
-    // 設定初始的狀態。注意！這裡有個反樣式，不要用props的值來設定state的初始值
-    this.state = {
-      privateKey: props.privateKey,
-      ether: 0,
-      rawTransaction: "",
-    }
-  }
-
-  handleNumber = (e: Event) => {
-    if (e.target instanceof HTMLInputElement) {
-      this.setState({ether: e.target.value})
-    }
-  }
-
-  handleRawTransaction = (e: Event) => {
+  handleRawTransaction = (e) => {
     console.log("props", this.props.privateKey);
     const privKey = new Buffer(this.props.privateKey.substring(2), 'hex')
     console.log(privKey)
@@ -91,11 +78,8 @@ class RawTransaction extends React.Component {
   }
 
 }
+export default RawTransaction;
 
-// 加入props的資料類型驗証
 RawTransaction.propTypes = {
   privateKey: PropTypes.string
-}
-
-// 匯出TextShow模組
-export default RawTransaction
+};
