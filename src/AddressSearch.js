@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import EthUtil from 'ethereumjs-util';
-import PropTypes from 'prop-types';
 import {getAddressBalanceLoad} from './lib/dAppService';
 import {h2d} from './lib/addressSearchHelper';
 
