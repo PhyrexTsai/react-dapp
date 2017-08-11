@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import BlockNumber from './BlockNumber';
-import AddressSearch from './AddressSearch';
-import Upload from './Upload';
+import BlockNumber from './components/BlockNumber';
+import AddressSearch from './components/AddressSearch';
+import Upload from './components/Upload';
 import './App.css';
 
 class App extends Component {
