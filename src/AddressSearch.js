@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import EthUtil from 'ethereumjs-util';
-import AddressBalance from './AddressBalance';
 import PropTypes from 'prop-types';
 import {getAddressBalanceLoad} from './lib/dAppService';
+import {h2d} from './lib/addressSearchHelper';
 
 class AddressSearch extends Component {
   state = {
@@ -46,7 +46,7 @@ class AddressSearch extends Component {
           onChange={this.handleChange}
         />
         <button onClick={this.handleClick}>Search</button>
-        <AddressBalance balance={this.state.balance}/> 
+        <div>Balance: {h2d(this.state.balance)}</div> 
       </div>
     )
   }
