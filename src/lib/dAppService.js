@@ -27,3 +27,13 @@ export const getBlockNumber = async () => {
   const url = 'https://ropsten.infura.io/YJ5zuNbAkmYQY3kFn4cZ';
   return await execFetch(url, payload);
 };
+
+export const getAddressBalanceLoad = async (address) => {
+  const params = [
+    address,
+    'latest'
+  ];
+  const payload = getPayload(1, 'eth_getBalance', params);
+  const url = 'https://ropsten.infura.io/';
+  return await execFetch(url, payload);
+};
