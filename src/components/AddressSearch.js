@@ -14,9 +14,9 @@ class AddressSearch extends Component {
 
   handleAddressBalanceLoad = async () => {
     try {
-      const res = await getAddressBalanceLoad(this.state.address);
-      console.log(`handleAddressBalanceLoad res: ${JSON.stringify(res)}`);
-      const balance = res.result//EthUtil.toBuffer(result.result)
+      const balance = getAddressBalanceLoad(this.state.address);
+      //console.log(`handleAddressBalanceLoad res: ${JSON.stringify(res)}`);
+      //const balance = res.result//EthUtil.toBuffer(result.result)
       this.setState({ balance });
     } catch (error) {
       console.error(`getAddressBalanceLoad error: ${error} `);
@@ -44,7 +44,7 @@ class AddressSearch extends Component {
           onChange={this.handleChange}
         />
         <button onClick={this.handleClick}>Search</button>
-        <div>Balance: {h2d(this.state.balance)}</div> 
+        <div>Balance: {this.state.balance}</div> 
       </div>
     )
   }

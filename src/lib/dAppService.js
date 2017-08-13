@@ -1,3 +1,7 @@
+const Web3 = require('web3');
+const web3 = new Web3();
+
+web3.setProvider(new web3.providers.HttpProvider('https://ropsten.infura.io/YJ5zuNbAkmYQY3kFn4cZ'));
 
 const execFetch = async (url, payload) => {
   const res = await fetch(url, {
@@ -21,19 +25,10 @@ const getPayload = (id, method, params) => ({
   params
 });
 
-
-export const getBlockNumber = async () => {
-  const payload = getPayload(1, 'eth_blockNumber', []);
-  const url = 'https://ropsten.infura.io/YJ5zuNbAkmYQY3kFn4cZ';
-  return await execFetch(url, payload);
+export const getBlockNumber = () => {
+  return web3.eth.blockNumber;
 };
 
-export const getAddressBalanceLoad = async (address) => {
-  const params = [
-    address,
-    'latest'
-  ];
-  const payload = getPayload(1, 'eth_getBalance', params);
-  const url = 'https://ropsten.infura.io/';
-  return await execFetch(url, payload);
+export const getAddressBalanceLoad = (address) => {
+  return web3.fromWei(web3.eth.getBalance(address), "ether").toString(10);
 };

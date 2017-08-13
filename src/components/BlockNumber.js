@@ -13,9 +13,9 @@ class BlockNumber extends Component {
 
   handleBlockNumberLoad = async () => {
     try {
-      const res = await getBlockNumber();
-      const blockNumber = EthUtil.bufferToInt(res.result);
-      this.setState({ blockNumber });
+      const res = getBlockNumber();
+      //const blockNumber = EthUtil.bufferToInt(res.result);
+      this.setState({ blockNumber: res });
     } catch (error) {
       console.log(`getBlockNumber error: ${error}`);
     }

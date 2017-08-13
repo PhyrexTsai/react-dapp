@@ -11,7 +11,8 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10"
+    "react-scripts": "1.0.10",
+    "web3": "0.15.3"
   },
   "scripts": {
     "start": "react-scripts start",
